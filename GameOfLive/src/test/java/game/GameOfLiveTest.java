@@ -91,5 +91,24 @@ public class GameOfLiveTest {
         };
         assertArrayEquals(expectedResult,result);
     }
+    @Test
+    public void nextEvolutionStepIrregularArrayTest() {
+        int [][] inputArray =  new int[][]{
+                { 1, 1, 1, 1, 1},
+                { 1, 1, 1, 1, 1, 0, 1},
+                { 1, 1, 1, 1, 1, 1, 0, 1, 0, 1},
+                { 1, 1, 1, 1, 1},
+                { 1, 1}
+        };
 
+        int [][] result = GameOfLive.nextEvolutionStep(inputArray);
+        int [][] expectedResult = new int[][]{
+                { 1, 0, 0, 0, 1},
+                { 0, 0, 0, 0, 0, 0, 1},
+                { 0, 0, 0, 0, 0, 0, 1, 0, 0},
+                { 0, 0, 0, 0, 0},
+                { 1, 0}
+        };
+        assertArrayEquals(expectedResult,result);
+    }
 }
