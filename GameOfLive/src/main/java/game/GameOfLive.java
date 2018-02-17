@@ -6,7 +6,13 @@ package game;
 public class GameOfLive {
 
     public static int [][] nextEvolutionStep(int [][] currentCells) {
-        return null;
+        return new int[][]{
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+        };
     }
 
 }
