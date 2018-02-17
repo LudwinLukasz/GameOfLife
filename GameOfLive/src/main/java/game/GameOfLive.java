@@ -43,39 +43,56 @@ public class GameOfLive {
 
     private static int getNeighboursSum(int [][] array, int x, int y) {
         int sum = 0;
-        if(x - 1 >= 0 && y - 1 >= 0 && y - 1 < array[x-1].length) {
+        if(checkIfArrayElementExists(array,x-1, y-1)) {
             sum += array[x-1][y-1];
         }
 
-        if(x - 1 >= 0 && y < array[x - 1].length) {
+        if(checkIfArrayElementExists(array,x-1, y)) {
             sum += array[x-1][y];
         }
 
-        if(x - 1 >= 0 && y + 1 < array[x-1].length) {
+        if(checkIfArrayElementExists(array,x-1, y+1)) {
             sum += array[x-1][y+1];
         }
 
-        if (y + 1 < array[x].length) {
+        if (checkIfArrayElementExists(array,x, y+1)) {
             sum += array[x][y + 1];
         }
 
-        if (x + 1 < array.length && y + 1 < array[x + 1].length) {
+        if (checkIfArrayElementExists(array,x+1, y+1)) {
             sum += array[x + 1][y + 1];
         }
 
-        if (x + 1 < array.length && y < array[x + 1].length) {
+        if (checkIfArrayElementExists(array,x+1, y)) {
             sum += array[x + 1][y];
         }
 
-        if (x + 1 < array.length && y - 1 >= 0 && y - 1 < array[x + 1].length) {
+        if (checkIfArrayElementExists(array,x+1, y-1)) {
             sum += array[x + 1][y - 1];
         }
 
-        if (y - 1 >= 0 && y - 1 < array[x].length) {
+        if (checkIfArrayElementExists(array,x, y-1)) {
             sum += array[x][y - 1];
         }
 
         return sum;
+    }
+
+
+    private static boolean checkIfArrayElementExists(int [][] array, int x, int y) {
+        if(x < 0 || y < 0) {
+            return false;
+        }
+
+        if(x >= array.length) {
+            return false;
+        }
+
+        if(y >= array[x].length) {
+            return false;
+        }
+
+        return true;
     }
 
 }
