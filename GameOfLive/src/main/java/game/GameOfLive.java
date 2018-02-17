@@ -43,11 +43,11 @@ public class GameOfLive {
 
     private static int getNeighboursSum(int [][] array, int x, int y) {
         int sum = 0;
-        if(x - 1 >= 0 && y - 1 >= 0) {
+        if(x - 1 >= 0 && y - 1 >= 0 && y - 1 < array[x-1].length) {
             sum += array[x-1][y-1];
         }
 
-        if(x - 1 >= 0) {
+        if(x - 1 >= 0 && y < array[x - 1].length) {
             sum += array[x-1][y];
         }
 
@@ -63,15 +63,15 @@ public class GameOfLive {
             sum += array[x + 1][y + 1];
         }
 
-        if (x + 1 < array.length) {
+        if (x + 1 < array.length && y < array[x + 1].length) {
             sum += array[x + 1][y];
         }
 
-        if (x + 1 < array.length && y - 1 >= 0) {
+        if (x + 1 < array.length && y - 1 >= 0 && y - 1 < array[x + 1].length) {
             sum += array[x + 1][y - 1];
         }
 
-        if (y - 1 >= 0) {
+        if (y - 1 >= 0 && y - 1 < array[x].length) {
             sum += array[x][y - 1];
         }
 
