@@ -10,6 +10,27 @@ import static org.junit.Assert.assertArrayEquals;
 public class GameOfLiveTest {
 
     @Test
+    public void nextEvolutionStepTestEmptyArray() {
+        int [][] inputArray =  new int[][]{
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+        };
+
+        int [][] result = GameOfLive.nextEvolutionStep(inputArray);
+        int [][] expectedResult = new int[][]{
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+                { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 }
+        };
+        assertArrayEquals(expectedResult,result);
+    }
+
+    @Test
     public void nextEvolutionStepTest() {
         int [][] inputArray =  new int[][]{
                 { 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 },
