@@ -11,6 +11,7 @@ public class GameOfLive {
 
 
         for(int i = 0; i < currentCells.length; i++) {
+            result[i] = new int[currentCells[i].length];
             for(int k = 0; k < currentCells[i].length; k++) {
                 int aliveNeighboursSum = getNeighboursSum(currentCells, i, k);
 
@@ -46,32 +47,32 @@ public class GameOfLive {
             sum += array[x-1][y-1];
         }
 
-        if(y - 1 >= 0) {
-            sum += array[x][y-1];
+        if(x - 1 >= 0) {
+            sum += array[x-1][y];
         }
 
-        if(x + 1 < array.length && y - 1 >= 0) {
-            sum += array[x + 1][y-1];
+        if(x - 1 >= 0 && y + 1 < array[x-1].length) {
+            sum += array[x-1][y+1];
         }
 
-        if (x + 1 < array.length) {
-            sum += array[x + 1][y];
+        if (y + 1 < array[x].length) {
+            sum += array[x][y + 1];
         }
 
         if (x + 1 < array.length && y + 1 < array[x + 1].length) {
             sum += array[x + 1][y + 1];
         }
 
-        if (y + 1 < array[x + 1].length) {
-            sum += array[x][y + 1];
+        if (x + 1 < array.length) {
+            sum += array[x + 1][y];
         }
 
-        if (x - 1 >= 0 && y + 1 < array[x + 1].length) {
-            sum += array[x - 1][y + 1];
+        if (x + 1 < array.length && y - 1 >= 0) {
+            sum += array[x + 1][y - 1];
         }
 
-        if (x - 1 >= 0) {
-            sum += array[x - 1][y];
+        if (y - 1 >= 0) {
+            sum += array[x][y - 1];
         }
 
         return sum;
